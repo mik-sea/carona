@@ -1,5 +1,5 @@
-var search = document.getElementsById('search');
-var container =  document.getElementsByClassName('container');
+var search = document.getElementById('search');
+var container =  document.getElementByClassName('container');
 
 search.addEventListener('keyup', function(){
     
@@ -8,11 +8,13 @@ search.addEventListener('keyup', function(){
     ajax.onreadystatechange = function(){
   
       if(ajax.readyState == 4 && ajax.status == 200){
-          container.innerHTML == ajax.responseText;
+          container.innerHTML = ajax.responseText;
       }
     
     }
   
-      ajax.open('GET', 'output.html?search=' )
+      ajax.open('GET', 'index.html?search=' + search.value, true);
+      ajax.send(); 
+      
   
 });
