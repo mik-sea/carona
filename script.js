@@ -38,15 +38,18 @@ function getDetail(hasil){
 }
 
 fetch(url).then(response=>{
-  response.json().then(hasil=>{
-    getDetail(hasil)
-  })
+    response.json().then(hasil=>{
+        getDetail(hasil)
+    })
 })
-$.ajax({
-  url:url,
-  type:"GET",
-  headers:{
-    "content-type":"Application/json",
-    "Access-Control-Allow-Origin":"*"
-  }
-})
+    // $.ajax({
+    //     url:url,
+    //     type:"GET",
+    //     headers:{
+    //         // "content-type":"application/json",
+    //         "Access-Control-Allow-Origin":"*",
+    //     },
+    //     success:(res)=>{
+    //         console.log(res)
+    //     }
+    // })
