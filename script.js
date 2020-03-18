@@ -4,7 +4,6 @@
 let res = []
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
-
 function getDetail(hasil){
   // console.log(data)
     hasil.forEach(response=>{
@@ -35,10 +34,6 @@ function getDetail(hasil){
             `</div>`+
             `</div>`+
         `</div>`)
-    // $("#hasil").append(`<p class="card-text">Total Terinfeksi : ${res.terinfeksi}</p>`+
-    //                   `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
-    //                   `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
-    //                   `<p class="card-text">Total Aktif : ${res.aktif}</p>`)
     })
 }
 
@@ -48,23 +43,50 @@ fetch(url).then(response=>{
   })
 })
 
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark'); //add this
-    }
-    else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light'); //add this
-    }    
-}
-toggleSwitch.addEventListener('change', switchTheme, false);
+const darkSwitch = document.getElementById('darkSwitch');
+window.addEventListener('load', () => {
+  if (darkSwitch) {
+    initTheme();
+    darkSwitch.addEventListener('change', () => {
+      resetTheme();
+    });
+  }
+});
 
-const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
-    }
+
+/**
+ * Summary: function that adds or removes the attribute 'data-theme' depending if
+ * the switch is 'on' or 'off'.
+ *
+ * Description: initTheme is a function that uses localStorage from JavaScript DOM,
+ * to store the value of the HTML switch. If the switch was already switched to
+ * 'on' it will set an HTML attribute to the body named: 'data-theme' to a 'dark'
+ * value. If it is the first time opening the page, or if the switch was off the
+ * 'data-theme' attribute will not be set.
+ * @return {void}
+ */
+function initTheme() {
+  const darkThemeSelected =
+    localStorage.getItem('darkSwitch') !== null &&
+    localStorage.getItem('darkSwitch') === 'dark';
+  darkSwitch.checked = darkThemeSelected;
+  darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') :
+    document.body.removeAttribute('data-theme');
+}
+
+
+/**
+ * Summary: resetTheme checks if the switch is 'on' or 'off' and if it is toggled
+ * on it will set the HTML attribute 'data-theme' to dark so the dark-theme CSS is
+ * applied.
+ * @return {void}
+ */
+function resetTheme() {
+  if (darkSwitch.checked) {
+    document.body.setAttribute('data-theme', 'dark');
+    localStorage.setItem('darkSwitch', 'dark');
+  } else {
+    document.body.removeAttribute('data-theme');
+    localStorage.removeItem('darkSwitch');
+  }
 }

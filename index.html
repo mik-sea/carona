@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
+    <script>
+        var url2 = "https://api.kawalcorona.com/indonesia"
+        $.ajax({
+            url:url2,
+            type:"GET",
+            headers:[
+                ""
+            ]
+        })
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,17 +42,14 @@
                 </div>
             </li>
             <li>
-                <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
-                <em>&nbsp &nbsp Dark Mode Gan! </em>
-                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="darkSwitch">
+                  <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+               </div>
             </li>
             </ul>
             <div class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" id="search" type="search" placeholder="ketik disini..." aria-label="Search">
+            <input class="form-control form-control-dark mr-sm-2" id="search" type="search" placeholder="ketik disini..." aria-label="Search">
             <button class="btn btn-outline-dark my-2 my-sm-0" type="button">Cari Negara</button>
             </div>
         </div>
