@@ -28,6 +28,9 @@ h1 {
   font-style: italic;
   
 }
+a{
+  color: var(--primary-color);
+}
 
 .scroll{
     display:block;
