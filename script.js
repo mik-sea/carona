@@ -18,7 +18,8 @@ function getDetail(hasil){
       res.meninggal = dataa.Deaths
       res.sembuh = dataa.Recovered
       res.aktif = dataa.Active
-      // console.log(res.negara+res.terinfeksi)
+      console.log(res.negara)
+      $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
     })
 }
 
