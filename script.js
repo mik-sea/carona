@@ -18,8 +18,8 @@ function getDetail(hasil){
       res.meninggal = dataa.Deaths
       res.sembuh = dataa.Recovered
       res.aktif = dataa.Active
-      // res.last_update = new Date(dataa.Last_Update/1000)
-      console.log(res.last_update)
+      // res.last_update = new Date(1584469982000/1000)
+      // console.log(res.last_update)
       // console.log(res.negara)
       $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)  
       $(".row").append(`<div class="col-lg-6 pb-5">`+
@@ -32,7 +32,7 @@ function getDetail(hasil){
             `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
             `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
             `<p class="card-text">Total Aktif : ${res.aktif}</p>`+
-            `<p class="card-text">Terakhir Update : ${res.last_update}</p>`
+            // `<p class="card-text">Terakhir Update : ${res.last_update}</p>`+
             `</div>`+
           `</div>`+
        `</div>`)
