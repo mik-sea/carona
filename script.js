@@ -9,11 +9,11 @@ fetch(url).then(response=>{
   response.json().then(hasil=>{
     hasil.forEach(res=>{
       let dataa = res.attributes
-      getAll(dataa)
+      getDetail(dataa)
     })
   })
 })
 
-function getAll(dataa){
-  
+function getDetail(data){
+  console.log(data)
 }
