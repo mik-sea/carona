@@ -3,12 +3,17 @@
 
 // prints "hi" in the browser's dev tools console
 let data = []
+//prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
 fetch(url).then(response=>{
   response.json().then(hasil=>{
     hasil.forEach(res=>{
       let dataa = res.attributes
-      console.log(dataa)
+      getAll(dataa)
     })
   })
 })
+
+function getAll(dataa){
+  
+}
