@@ -2,28 +2,28 @@
     to your site with Javascript */
 
 // prints "hi" in the browser's dev tools console
-let res = []
+let res = {}
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
+
+function getDetail(hasil){
+  // console.log(data)
+  hasil.forEach(response=>{
+      let dataa = response.attributes
+      // console.log(dataa)
+      res.negara = dataa.Country_Region
+      res.lat = dataa.Lat
+      res.long = dataa.Long_
+      res.terinfeksi = dataa.Confirmed
+      res.meninggal = dataa.Deaths
+      res.sembuh = dataa.Recovered
+      res.aktif = dataa.Active
+      console.log(res.negara+res.terinfeksi)
+    })
+}
+
 fetch(url).then(response=>{
   response.json().then(hasil=>{
-    hasil.forEach(res=>{
-      let dataa = res.attributes
-      getDetail(dataa)
-    })
+    getDetail(hasil)
   })
 })
-
-function getDetail(data){
-  console.log(data)
-  data.json().then(hasil=>{
-    res.negara = hasil.Country_Region
-    res.lat = hasil.Lat
-    res.long = hasil.Long_
-    res.terinfeksi = hasil.Confirmed
-    res.meninggal = hasil.Deaths
-    res.sembuh = hasil.Recovered
-    res.aktif = hasil.Active
-  })
-  console.log(res)
-}
