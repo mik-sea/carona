@@ -2,4 +2,12 @@
     to your site with Javascript */
 
 // prints "hi" in the browser's dev tools console
-console.log("hi");
+let data = []
+var url = "https://api.kawalcorona.com"
+fetch(url).then(response=>{
+  response.json().then(hasil=>{
+    hasil.forEach(res=>{
+      console.log(res)
+    })
+  })
+})
