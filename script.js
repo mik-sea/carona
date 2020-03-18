@@ -18,8 +18,20 @@ function getDetail(hasil){
       res.meninggal = dataa.Deaths
       res.sembuh = dataa.Recovered
       res.aktif = dataa.Active
-      console.log(res.negara)
+      // console.log(res.negara)
       $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
+      
+      $(".row").append(`<div class="col-lg-6">`+
+          `<div class="card">`+
+            `<div class="card-header" id="nama-negara">`+
+            `<h5 class="card-title">${res.negara}/h5>`+
+            `</div>`+
+            `<div class="card-body" id="hasil">`+
+            `</div>`+
+          `</div>`+
+       `</div>`)
+    $("#hasil").append(`<p class="card-text">Total Terinfeksi : ${res.terinfeksi}</p>`+
+                      `<p class="card-text">Total Terinfeksi : ${res.terinfeksi}</p>`)
     })
 }
 
