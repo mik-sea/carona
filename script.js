@@ -21,17 +21,23 @@ function getDetail(hasil){
       // console.log(res.negara)
       $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
       
-      $(".row").append(`<div class="col-lg-6">`+
-          `<div class="card">`+
+      $(".row").append(`<div class="col-lg-6 pb-5">`+
+          `<div class="card text-center">`+
             `<div class="card-header" id="nama-negara">`+
-            `<h5 class="card-title">${res.negara}/h5>`+
+            `<h5 class="card-title">${res.negara}</h5>`+
             `</div>`+
             `<div class="card-body" id="hasil">`+
+            `<p class="card-text">Total Terinfeksi : ${res.terinfeksi}</p>`+
+            `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
+            `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
+            `<p class="card-text">Total Aktif : ${res.aktif}</p>`+
             `</div>`+
           `</div>`+
        `</div>`)
-    $("#hasil").append(`<p class="card-text">Total Terinfeksi : ${res.terinfeksi}</p>`+
-                      `<p class="card-text">Total Terinfeksi : ${res.terinfeksi}</p>`)
+    // $("#hasil").append(`<p class="card-text">Total Terinfeksi : ${res.terinfeksi}</p>`+
+    //                   `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
+    //                   `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
+    //                   `<p class="card-text">Total Aktif : ${res.aktif}</p>`)
     })
 }
 
