@@ -1,13 +1,32 @@
 /* CSS files add styling rules to your content */
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --heading-color: #292922;
+}
+
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: #818cab;
+}
+
 
 body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
   font-family: helvetica, arial, sans-serif;
   margin: 2em;
 }
 
 h1 {
+  color: var(--secondary-color);
   font-style: italic;
-  color: #373fff;
+  
 }
 
 .scroll{

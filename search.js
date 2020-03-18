@@ -1,5 +1,5 @@
 var search = document.getElementById('search');
-var container =  document.getElementByClassName('container');
+var container =  document.getElementsByClassName('row');
 
 search.addEventListener('keyup', function(){
     
@@ -13,7 +13,7 @@ search.addEventListener('keyup', function(){
     
     }
   
-      ajax.open('GET', 'index.html?search=' + search.value, true);
+      ajax.open('GET', 'output.html?search=' + search.value, true);
       ajax.send(); 
       
   
