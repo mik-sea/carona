@@ -2,7 +2,7 @@
     to your site with Javascript */
 
 // prints "hi" in the browser's dev tools console
-let res = {}
+let res = []
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
 
@@ -18,7 +18,7 @@ function getDetail(hasil){
       res.meninggal = dataa.Deaths
       res.sembuh = dataa.Recovered
       res.aktif = dataa.Active
-      console.log(res.negara+res.terinfeksi)
+      // console.log(res.negara+res.terinfeksi)
     })
 }
 
