@@ -1,10 +1,9 @@
-var search = document.getElementById('search');
-var container =  document.getElementById('dataa');
+// function cetak() {
+//     var search1 = document.getElementById("search").value ;
+//     document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
+// }
 
-function cetak() {
-    var search1 = document.getElementById("search").value ;
-    document.getElementById("demo").innerHTML = "<b>" + search1 +"</b>";
-}
+
 
 
 // search.addEventListener('keyup',function(){  
