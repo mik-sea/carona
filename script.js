@@ -1,22 +1,6 @@
 let res = {}
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
-// function string_sort(str) {
-//     var i = 0, j;
-//     while (i < str.length) {
-//         j = i + 1;
-//         while (j < str.length) {
-//             if (str[j] < str[i]) {
-//                 var temp = str[i];
-//                 str[i] = str[j];
-//                 str[j] = temp;
-//             }
-//             j++;
-//         }
-//         i++;
-//     }
-//     return str
-// }
 function getDetail(hasil){
   // console.log(data)
     hasil.forEach(response=>{
@@ -32,7 +16,7 @@ function getDetail(hasil){
         // res.last_update = new Date(1584469982000/1000)
         // console.log(res.last_update)
         $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
-        $(".row").append(`<div class="col-lg-6 pb-5">`+
+        $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
             `<div class="card text-center">`+
             `<div class="card-header" id="nama-negara">`+
             `<h5 class="card-title">${res.negara}</h5>`+
@@ -42,7 +26,6 @@ function getDetail(hasil){
             `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
             `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
             `<p class="card-text">Total Aktif : ${res.aktif}</p>`+
-            // `<p class="card-text">Terakhir Update : ${res.last_update}</p>`+
             `</div>`+
             `</div>`+
         `</div>`)
