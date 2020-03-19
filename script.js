@@ -21,11 +21,11 @@ function getDetail(hasil){
         // console.log(res.last_update)
         $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
         $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
-            `<div class="card text-center">`+
-            `<div class="card-header" id="nama-negara">`+
+            `<div class="card text-center bg-light bg-dark">`+
+            `<div class="card-header" id="nama-negara" data-theme="dark">`+
             `<h5 class="card-title">${res.negara}</h5>`+
             `</div>`+
-            `<div class="card-body" id="hasil">`+
+            `<div class="card-body" id="hasil" data-theme="dark">`+
             `<p class="card-text">Total Terinfeksi : ${res.positif} Jiwa</p>`+
             `<p class="card-text">Total Meninggal : ${res.meninggal} Jiwa</p>`+
             `<p class="card-text">Total Sembuh : ${res.sembuh} Jiwa</p>`+
