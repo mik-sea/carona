@@ -31,7 +31,7 @@ function getDetail(hasil){
             `</div>`+
             `</div>`+
         `</div>`)
-        cetak(res)
+        cetak(res.negara)
     })
 }
 
@@ -43,14 +43,14 @@ fetch(url).then(response=>{
 
 
 function cetak(data) {
-    console.log(data)
     var search1 = document.getElementById("search").value ;
-  
+    // console.log(search1.toLowerCase())
+    if(data != search1)
     localStorage.setItem('search', JSON.stringify(search1))
     // const data = JSON.parse(localStorage.getItem('search'))
-    console.log(localStorage.getItem('search'))
+    // console.log(localStorage.getItem('search'))
   
-    document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
+    // document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
 }
 
 
