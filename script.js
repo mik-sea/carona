@@ -1,6 +1,3 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
-
 let res = []
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
