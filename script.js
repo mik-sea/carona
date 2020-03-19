@@ -14,8 +14,8 @@ function getDetail(hasil){
         res.meninggal = dataa.Deaths
         res.sembuh = dataa.Recovered
         res.aktif = dataa.Active
-        res.waktu = new Date(dataa.Last_Update * 1000)
-        console.log(res.waktu.toLocaleString())
+        res.waktu = Math.round(new Date(dataa.Last_Update)* 1000)
+        console.log(dataa.Last_Update)
         // res.last_update = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
         // console.log(res.last_update.getTimes())
         // console.log(res.last_update)
