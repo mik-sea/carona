@@ -14,11 +14,8 @@ function getDetail(hasil){
         res.meninggal = dataa.Deaths
         res.sembuh = dataa.Recovered
         res.aktif = dataa.Active
-        res.waktu = new Date(dataa.Last_Update).toString()
-        // console.log(res.waktu)
-        // res.last_update = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
-        // console.log(res.last_update.getTimes())
-        // console.log(res.last_update)
+        let waktuu = new Date(dataa.Last_Update)
+        res.waktu = `${waktuu.toDateString()}&nbsp;${waktuu.toLocaleTimeString()}`
         $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
         $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
             `<div class="card text-center bg-light">`+
@@ -34,6 +31,7 @@ function getDetail(hasil){
             `</div>`+
             `</div>`+
         `</div>`)
+        cetak(res)
     })
 }
 
@@ -44,12 +42,13 @@ fetch(url).then(response=>{
 })
 
 
-function cetak() {
+function cetak(data) {
+    console.log(data)
     var search1 = document.getElementById("search").value ;
   
-    localStorage.setItem('search', JSON.stringify(res))
-    const data = JSON.parse(localStorage.getItem('search'))
-    alert(data);
+    localStorage.setItem('search', JSON.stringify(search1))
+    // const data = JSON.parse(localStorage.getItem('search'))
+    console.log(localStorage.getItem('search'))
   
     document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
 }
