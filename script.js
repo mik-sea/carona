@@ -14,8 +14,8 @@ function getDetail(hasil){
         res.meninggal = dataa.Deaths
         res.sembuh = dataa.Recovered
         res.aktif = dataa.Active
-        let waktu = new Date(dataa.Last_Update / 1000)
-        console.log(waktu)
+        res.waktu = new Date(dataa.Last_Update * 1000)
+        console.log(res.waktu.toLocaleString())
         // res.last_update = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
         // console.log(res.last_update.getTimes())
         // console.log(res.last_update)
@@ -30,7 +30,7 @@ function getDetail(hasil){
             `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
             `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
             `<p class="card-text">Total Aktif : ${res.aktif}</p>`+
-            `<p class="card-text">Last Update : ${res.last_update}</p>`+
+            `<p class="card-text">Last Update : ${res.waktu}</p>`+
             `</div>`+
             `</div>`+
         `</div>`)
@@ -47,7 +47,9 @@ fetch(url).then(response=>{
 function cetak() {
     var search1 = document.getElementById("search").value ;
   
-    localStorage.setItem('items', JSON.stringify(res))
+    localStorage.setItem('search', JSON.stringify(res))
+    const data = JSON.parse(localStorage.getItem('search'))
+    alert(data);
   
     document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
 }
