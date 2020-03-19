@@ -14,7 +14,8 @@ function getDetail(hasil){
         res.meninggal = dataa.Deaths
         res.sembuh = dataa.Recovered
         res.aktif = dataa.Active
-        // res.last_update = new Date(1584469982000/1000)
+        res.last_update = new Date(dataa.Last_Update/1000,"")
+        console.log(res.last_update)
         // console.log(res.last_update)
         $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
         $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
