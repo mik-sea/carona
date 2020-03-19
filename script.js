@@ -14,8 +14,9 @@ function getDetail(hasil){
         res.meninggal = dataa.Deaths
         res.sembuh = dataa.Recovered
         res.aktif = dataa.Active
-        let waktu = new Date(dataa.Last_Update/1000)
-        res.last_update = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
+        let waktu = new Date(dataa.Last_Update / 1000)
+        console.log(waktu)
+        // res.last_update = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
         // console.log(res.last_update.getTimes())
         // console.log(res.last_update)
         $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
@@ -45,6 +46,9 @@ fetch(url).then(response=>{
 
 function cetak() {
     var search1 = document.getElementById("search").value ;
+  
+    localStorage.setItem('items', JSON.stringify(res))
+  
     document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
 }
 
