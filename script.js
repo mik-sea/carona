@@ -45,8 +45,13 @@ fetch(url).then(response=>{
 function cetak(data) {
     var search1 = document.getElementById("search").value ;
     // console.log(search1.toLowerCase())
-    if(data != search1)
-    localStorage.setItem('search', JSON.stringify(search1))
+    localStorage.setItem('search', JSON.stringify(search1.toLowerCase()))
+    let get = localStorage.getItem('search')
+    if(data.toLowerCase() == get){
+        // console.log("tidak")
+    }else{
+        // console.log(data)
+    }
     // const data = JSON.parse(localStorage.getItem('search'))
     // console.log(localStorage.getItem('search'))
   
