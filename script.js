@@ -21,7 +21,7 @@ function getDetail(hasil){
         // console.log(res.last_update)
         $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
         $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
-            `<div class="card text-center bg-light bg-dark">`+
+            `<div class="card text-center bg-light">`+
             `<div class="card-header" id="nama-negara" data-theme="dark">`+
             `<h5 class="card-title">${res.negara}</h5>`+
             `</div>`+
