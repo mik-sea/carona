@@ -14,16 +14,8 @@ function getDetail(hasil){
         res.meninggal = dataa.Deaths
         res.sembuh = dataa.Recovered
         res.aktif = dataa.Active
-        res.waktu = Math.floor(new Date(dataa.Last_Update).toLocaleString()/ 1000.0)
-        // toLocaleString(undefined, {
-        //     day: 'numeric',
-        //     month: 'numeric',
-        //     year: 'numeric',
-        //     hour: '2-digit',
-        //     minute: '2-digit',
-        //     second: '2-digit'
-        // })
-        console.log(res.waktu)
+        res.waktu = new Date(dataa.Last_Update).toString()
+        // console.log(res.waktu)
         // res.last_update = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
         // console.log(res.last_update.getTimes())
         // console.log(res.last_update)
@@ -34,11 +26,11 @@ function getDetail(hasil){
             `<h5 class="card-title">${res.negara}</h5>`+
             `</div>`+
             `<div class="card-body" id="hasil">`+
-            `<p class="card-text">Total Terinfeksi : ${res.positif}</p>`+
-            `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
-            `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
-            `<p class="card-text">Total Aktif : ${res.aktif}</p>`+
-            // `<p class="card-text">Last Update : ${res.waktu}</p>`+
+            `<p class="card-text">Total Terinfeksi : ${res.positif} Jiwa</p>`+
+            `<p class="card-text">Total Meninggal : ${res.meninggal} Jiwa</p>`+
+            `<p class="card-text">Total Sembuh : ${res.sembuh} Jiwa</p>`+
+            `<p class="card-text">Total Aktif : ${res.aktif} Jiwa</p>`+
+            `<p class="card-text">Last Update : ${res.waktu}</p>`+
             `</div>`+
             `</div>`+
         `</div>`)
