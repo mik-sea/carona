@@ -14,8 +14,16 @@ function getDetail(hasil){
         res.meninggal = dataa.Deaths
         res.sembuh = dataa.Recovered
         res.aktif = dataa.Active
-        res.waktu = Math.round(new Date(dataa.Last_Update)* 1000)
-        console.log(dataa.Last_Update)
+        res.waktu = Math.floor(new Date(dataa.Last_Update).toLocaleString()/ 1000.0)
+        // toLocaleString(undefined, {
+        //     day: 'numeric',
+        //     month: 'numeric',
+        //     year: 'numeric',
+        //     hour: '2-digit',
+        //     minute: '2-digit',
+        //     second: '2-digit'
+        // })
+        console.log(res.waktu)
         // res.last_update = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
         // console.log(res.last_update.getTimes())
         // console.log(res.last_update)
@@ -30,7 +38,7 @@ function getDetail(hasil){
             `<p class="card-text">Total Meninggal : ${res.meninggal}</p>`+
             `<p class="card-text">Total Sembuh : ${res.sembuh}</p>`+
             `<p class="card-text">Total Aktif : ${res.aktif}</p>`+
-            `<p class="card-text">Last Update : ${res.waktu}</p>`+
+            // `<p class="card-text">Last Update : ${res.waktu}</p>`+
             `</div>`+
             `</div>`+
         `</div>`)
