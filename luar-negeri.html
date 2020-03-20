@@ -9,12 +9,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- import the webpage's javascript file -->
     <script src="/dark-mode-switch.js" defer></script>
-    <script src="/script.js" defer></script>
+    <script src="script.js" defer></script>
     <script>
-        function cekNegara(negara){
-            console.log(negara)
+        function getUrlVars(param=null){
+            if(param !== null)
+            {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for(var i = 0; i < hashes.length; i++)
+                {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+            return vars[param];
+            }
+            else
+            {
+                return null;
+            }
+        }
+        function cekNegara(data){
+            console.log(res)
         }
         console.log(getUrlVars("negara"))
+        console.log(cekNegara())
     </script>
 </head>
 <body>
