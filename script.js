@@ -17,7 +17,7 @@ function getDetail(hasil){
         let waktuu = new Date(dataa.Last_Update)
         res.waktu = `${waktuu.toLocaleDateString()}&nbsp;${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
         $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
-        $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
+        $("div#isi").append(`<div class="col-lg-6 pb-5">`+
             `<div class="card text-center bg-light">`+
             `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
             `<h5 class="card-title">${res.negara}</h5>`+
