@@ -1,13 +1,17 @@
 let res = {}
+
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
+
 $(document).ready(function(){
     $('.card').each(function(){
         $(this).attr('searchData', $(this).text().toLowerCase());
     });
+  
     $('#search').on('keyup', function(){
     var dataList = $(this).val().toLowerCase();
         $('.card-title').each(function(){
+          
             if ($(this).filter('[searchData *= ' + dataList + ']').length > 0 || dataList.length < 1) {
                 $(this).show();
             } else {
@@ -16,7 +20,7 @@ $(document).ready(function(){
         });
     });
 })
-function getUrlVars(param=null){
+function getUrlVars(param = null){
     if(param !== null)
     {
         var vars = [], hash;
