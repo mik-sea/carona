@@ -1,6 +1,24 @@
 let res = {}
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
+function getUrlVars(param=null){
+    if(param !== null)
+    {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+    return vars[param];
+    }
+    else
+    {
+        return null;
+    }
+}
 function getDetail(hasil){
 //   console.log(hasil)
     hasil.forEach(response=>{
@@ -16,8 +34,8 @@ function getDetail(hasil){
         res.aktif = dataa.Active
         let waktuu = new Date(dataa.Last_Update)
         res.waktu = `${waktuu.toLocaleDateString()}&nbsp;${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
-        $("#negara").append(`<a class="dropdown-item" href="#">${res.negara}</a>`)
-        $("div#isi").append(`<div class="col-lg-6 pb-5">`+
+        $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara}">${res.negara}</a>`)
+        $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
             `<div class="card text-center bg-light">`+
             `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
             `<h5 class="card-title">${res.negara}</h5>`+
@@ -32,6 +50,7 @@ function getDetail(hasil){
             `</div>`+
         `</div>`)
         cetak(res.negara)
+        cekNegara(res)
     })
 }
 
