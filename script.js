@@ -1,6 +1,28 @@
 let res = {}
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
+$(document).
+function getUrlVars(param=null){
+    if(param !== null)
+    {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+    return vars[param];
+    }
+    else
+    {
+        return null;
+    }
+}
+function cekNegara(){
+    console.log($("div.card h5").val())
+}
 function getDetail(hasil){
 //   console.log(hasil)
     hasil.forEach(response=>{
@@ -32,8 +54,8 @@ function getDetail(hasil){
             `</div>`+
         `</div>`)
         cetak(res.negara)
-        localStorage.setItem('negara',JSON.stringify(res.negara))
     })
+    cekNegara()
 }
 
 fetch(url).then(response=>{
@@ -58,7 +80,6 @@ function cetak(data) {
   
     // document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
 }
-
 
 
     // $.ajax({
