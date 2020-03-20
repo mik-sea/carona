@@ -53,9 +53,8 @@ function getDetail(hasil){
             res.meninggal = dataa.Deaths
             res.sembuh = dataa.Recovered
             res.aktif = dataa.Active
-          
             let waktuu = new Date(dataa.Last_Update)
-            res.waktu = `${waktuu.toLocaleDateString()}&nbsp;${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
+            res.waktu = `${waktuu.toLocaleDateString()} ${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
             $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara}">${res.negara}</a>`)
             $("div#dataa").append(
                 `<div class="col-lg-6 pb-5">`+
