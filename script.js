@@ -1,7 +1,12 @@
 let res = {}
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
-$(document).
+$(document).ready(function(){
+    function cekNegara(){
+        console.log($("div#nama-negara"))
+    }
+    // cekNegara()
+})
 function getUrlVars(param=null){
     if(param !== null)
     {
@@ -20,51 +25,45 @@ function getUrlVars(param=null){
         return null;
     }
 }
-function cekNegara(){
-    console.log($("div.card h5").val())
-}
 function getDetail(hasil){
-//   console.log(hasil)
-    hasil.forEach(response=>{
-        let dataa = response.attributes
-        // let dt = response
-        // console.log(dataa)
-        res.negara = dataa.Country_Region
-        res.lat = dataa.Lat
-        res.long = dataa.Long_
-        res.positif = dataa.Confirmed
-        res.meninggal = dataa.Deaths
-        res.sembuh = dataa.Recovered
-        res.aktif = dataa.Active
-        let waktuu = new Date(dataa.Last_Update)
-        res.waktu = `${waktuu.toLocaleDateString()}&nbsp;${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
-        $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara}">${res.negara}</a>`)
-        $("div#dataa").append(`<div class="col-lg-6 pb-5">`+
-            `<div class="card text-center bg-light">`+
-            `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
-            `<h5 class="card-title">${res.negara}</h5>`+
-            `</div>`+
-            `<div class="card-body" id="hasil" data-theme="dark">`+
-            `<p class="card-text">Total Terinfeksi : ${res.positif} Jiwa</p>`+
-            `<p class="card-text">Total Meninggal : ${res.meninggal} Jiwa</p>`+
-            `<p class="card-text">Total Sembuh : ${res.sembuh} Jiwa</p>`+
-            `<p class="card-text">Total Aktif : ${res.aktif} Jiwa</p>`+
-            `<p class="card-text">Last Update : ${res.waktu}</p>`+
-            `</div>`+
-            `</div>`+
-        `</div>`)
-        cetak(res.negara)
-    })
-    cekNegara()
-}
-
+    //   console.log(hasil)
+        hasil.forEach(response=>{
+            let dataa = response.attributes
+            // let dt = response
+            // console.log(dataa)
+            res.negara = dataa.Country_Region
+            res.lat = dataa.Lat
+            res.long = dataa.Long_
+            res.positif = dataa.Confirmed
+            res.meninggal = dataa.Deaths
+            res.sembuh = dataa.Recovered
+            res.aktif = dataa.Active
+            let waktuu = new Date(dataa.Last_Update)
+            res.waktu = `${waktuu.toLocaleDateString()}&nbsp;${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
+            $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara}">${res.negara}</a>`)
+            $("div#dataa").append(
+                `<ul><li><div class="col-lg-6 pb-5">`+
+                `<div class="card text-center bg-light">`+
+                `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
+                `<h5 class="card-title">${res.negara}</h5>`+
+                `</div>`+
+                `<div class="card-body" id="hasil" data-theme="dark">`+
+                `<p class="card-text">Total Terinfeksi : ${res.positif} Jiwa</p>`+
+                `<p class="card-text">Total Meninggal : ${res.meninggal} Jiwa</p>`+
+                `<p class="card-text">Total Sembuh : ${res.sembuh} Jiwa</p>`+
+                `<p class="card-text">Total Aktif : ${res.aktif} Jiwa</p>`+
+                `<p class="card-text">Last Update : ${res.waktu}</p>`+
+                `</div>`+
+                `</div>`+
+            `</div></li></ul>`)
+            cetak(res.negara)
+        })
+    }
 fetch(url).then(response=>{
     response.json().then(hasil=>{
         getDetail(hasil)
     })
 })
-
-
 function cetak(data) {
     var search1 = document.getElementById("search").value ;
     // console.log(search1.toLowerCase())
