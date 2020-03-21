@@ -4,9 +4,6 @@ let res = {}
 var url = "https://api.kawalcorona.com"
 
 $(document).ready(function(){
-    $('.card h5').each(function(){
-        $(this).attr('searchData', $(this).text().toLowerCase());
-    });
   
     $('#search').on('keyup', function(){
         var dataList = $(this).val().toLowerCase();
@@ -57,7 +54,7 @@ function getDetail(hasil){
             $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara}">${res.negara}</a>`)
             $("div#dataa").append(
                 `<div class="col-lg-6 pb-5">`+
-                `<div class="card text-center bg-light">`+
+                `<div class="card text-center bg-light" searchData="${res.negara.toLowerCase()}">`+
                 `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
                 `<h5 class="card-title">${res.negara}</h5>`+
                 `</div>`+
