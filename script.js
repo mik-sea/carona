@@ -4,7 +4,6 @@ let res = {}
 var url = "https://api.kawalcorona.com"
 
 $(document).ready(function(){
-  
     $('#search').on('keyup', function(){
         var dataList = $(this).val().toLowerCase();
         $('.card').each(function(){
