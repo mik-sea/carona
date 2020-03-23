@@ -15,25 +15,6 @@ $(document).ready(function(){
         });
     });
 })
-
-function getUrlVars(param = null){
-    if(param !== null)
-    {
-        var vars = [], hash;
-        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-        for(var i = 0; i < hashes.length; i++)
-        {
-            hash = hashes[i].split('=');
-            vars.push(hash[0]);
-            vars[hash[0]] = hash[1];
-        }
-    return vars[param];
-    }
-    else
-    {
-        return null;
-    }
-}
 function getDetail(hasil){
     //   console.log(hasil)
         hasil.forEach(response=>{
@@ -49,7 +30,7 @@ function getDetail(hasil){
             res.aktif = dataa.Active
             let waktuu = new Date(dataa.Last_Update)
             res.waktu = `${waktuu.toLocaleDateString()} ${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
-            $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara}">${res.negara}</a>`)
+            $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara.toLowerCase()}">${res.negara}</a>`)
             $("div#dataa").append(
                 `<div class="col-lg-6 mb-1">`+
                 `<div class="card text-center bg-light" searchData="${res.negara.toLowerCase()}">`+
@@ -97,6 +78,5 @@ function cetak(data) {
     }
     // const data = JSON.parse(localStorage.getItem('search'))
     // console.log(localStorage.getItem('search'))
-  
     // document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
 }
