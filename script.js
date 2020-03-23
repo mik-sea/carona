@@ -37,7 +37,6 @@ function getUrlVars(param = null){
 function getDetail(hasil){
     //   console.log(hasil)
         hasil.forEach(response=>{
-          
             let dataa = response.attributes
             // let dt = response
             // console.log(dataa)
@@ -75,6 +74,23 @@ fetch(url).then(response=>{
     response.json().then(hasil=>{
         getDetail(hasil)
     })
+})
+$.ajax({
+    url:url,
+    type:"GET",
+    headers:{
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "X-Content-Type-Options": "nosniff",
+        "Connection":"keep-alive"
+    },
+    success:(hasil)=>{
+        // getDetail(hasil)
+        console.log(hasil)
+    },
+    error:(err)=>{
+        console.log(err)
+    }
 })
 function cetak(data) {
     var search1 = document.getElementById("search").value ;
