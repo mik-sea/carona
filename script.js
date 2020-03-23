@@ -15,68 +15,59 @@ $(document).ready(function(){
         });
     });
 })
-function getDetail(hasil){
-    //   console.log(hasil)
-        hasil.forEach(response=>{
-            let dataa = response.attributes
-            // let dt = response
-            // console.log(dataa)
-            res.negara = dataa.Country_Region
-            res.lat = dataa.Lat
-            res.long = dataa.Long_
-            res.positif = dataa.Confirmed
-            res.meninggal = dataa.Deaths
-            res.sembuh = dataa.Recovered
-            res.aktif = dataa.Active
-            let waktuu = new Date(dataa.Last_Update)
-            res.waktu = `${waktuu.toLocaleDateString()} ${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
-            $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara.toLowerCase()}">${res.negara}</a>`)
-            $("div#dataa").append(
-                `<div class="col-lg-6 mb-1">`+
-                `<div class="card text-center bg-light" searchData="${res.negara.toLowerCase()}">`+
-                `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
-                `<h5 class="card-title">${res.negara}</h5>`+
-                `</div>`+
-                `<div class="card-body" id="hasil" data-theme="dark">`+
-                `<p class="card-text">Total Terinfeksi : ${res.positif} Jiwa😱</p>`+
-                `<p class="card-text">Total Meninggal : ${res.meninggal} Jiwa👻</p>`+
-                `<p class="card-text">Total Sembuh : ${res.sembuh} Jiwa😃</p>`+
-                `<p class="card-text">Total Aktif : ${res.aktif} Jiwa😷</p>`+
-                `<p class="card-text">Last Update : ${res.waktu}</p>`+
-                `</div>`+
-                `</div>`+
-            `</div>`
-            )
-        // cetak(res.negara)
-        })
-    }
-$.ajax({
-    url:url,
-    type:"GET",
-    // headers:{
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Origin": "https://api.kawalcorona.com",
-    //     "X-Content-Type-Options": "nosniff",
-    // },
-    success:(hasil)=>{
-        getDetail(hasil)
-        // console.log(hasil)
-    },
-    error:(err)=>{
-        console.log(err)
-    }
-})
-
-$.ajax({
-    url:"https://api.kawalcorona.com/indonesia/provinsi",
-    type:"GET",
-    success:(hasil)=>{
-        console.log(hasil)
-    },
-    error:(err)=>{
-        console.log(err)
-    }
-})
+function luar_negeri(){
+    function getDetail(hasil){
+        //   console.log(hasil)
+            hasil.forEach(response=>{
+                let dataa = response.attributes
+                // let dt = response
+                // console.log(dataa)
+                res.negara = dataa.Country_Region
+                res.lat = dataa.Lat
+                res.long = dataa.Long_
+                res.positif = dataa.Confirmed
+                res.meninggal = dataa.Deaths
+                res.sembuh = dataa.Recovered
+                res.aktif = dataa.Active
+                let waktuu = new Date(dataa.Last_Update)
+                res.waktu = `${waktuu.toLocaleDateString()} ${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
+                $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara.toLowerCase()}">${res.negara}</a>`)
+                $("div#dataa").append(
+                    `<div class="col-lg-6 mb-1">`+
+                    `<div class="card text-center bg-light" searchData="${res.negara.toLowerCase()}">`+
+                    `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
+                    `<h5 class="card-title">${res.negara}</h5>`+
+                    `</div>`+
+                    `<div class="card-body" id="hasil" data-theme="dark">`+
+                    `<p class="card-text">Total Terinfeksi : ${res.positif} Jiwa😱</p>`+
+                    `<p class="card-text">Total Meninggal : ${res.meninggal} Jiwa👻</p>`+
+                    `<p class="card-text">Total Sembuh : ${res.sembuh} Jiwa😃</p>`+
+                    `<p class="card-text">Total Aktif : ${res.aktif} Jiwa😷</p>`+
+                    `<p class="card-text">Last Update : ${res.waktu}</p>`+
+                    `</div>`+
+                    `</div>`+
+                `</div>`
+                )
+            // cetak(res.negara)
+            })
+        }
+    $.ajax({
+        url:url,
+        type:"GET",
+        // headers:{
+        //     "Content-Type": "application/json",
+        //     "Access-Control-Allow-Origin": "https://api.kawalcorona.com",
+        //     "X-Content-Type-Options": "nosniff",
+        // },
+        success:(hasil)=>{
+            getDetail(hasil)
+            // console.log(hasil)
+        },
+        error:(err)=>{
+            console.log(err)
+        }
+    })
+}
 function cetak(data) {
     var search1 = document.getElementById("search").value ;
     // console.log(search1.toLowerCase())

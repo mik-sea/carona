@@ -12,8 +12,22 @@
     <!-- import the webpage's javascript file -->
     <script src="/dark-mode-switch.js" defer></script>
     <script src="/script.js" defer></script>
+    <script>
+        function indonesia(){
+            $.ajax({
+                url:"https://api.kawalcorona.com/indonesia/provinsi",
+                type:"GET",
+                success:(hasil)=>{
+                    console.log(hasil)
+                },
+                error:(err)=>{
+                    console.log(err)
+                }
+            })
+        }
+    </script>
 </head>
-<body>
+<body onload="indonesia()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#"><b>😷TiatiCorona</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
