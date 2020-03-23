@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- import the webpage's javascript file -->
-    <script src="/dark-mode-switch.js" defer></script>
-    <script src="/script.js" defer></script>
+    <script src="dark-mode-switch.js" defer></script>
+    <script src="script.js" defer></script>
     <script>
-        function indonesia(){
+        // function indonesia(){
+            var url="https://api.kawalcorona.com/indonesia/provinsi"
             $.ajax({
-                url:"https://api.kawalcorona.com/indonesia/provinsi",
+                url:url,
                 type:"GET",
                 success:(hasil)=>{
                     console.log(hasil)
@@ -24,10 +25,10 @@
                     console.log(err)
                 }
             })
-        }
+        // }
     </script>
 </head>
-<body onload="indonesia()">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#"><b>😷TiatiCorona</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Indonesia <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Indonesia <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
