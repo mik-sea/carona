@@ -69,13 +69,12 @@ function luar_negeri(){
     })
 }
 function indonesia(){
-    function sendiri(res){
+    function sendiri(ress){
         // res.forEach(element => {
-            let data = res[0].attributes
-            console.log(data)
+            let data = ress[0]
             $("div#indonesia").append(
-                `<div class="col-lg-6 mb-1">`+
-                `<div class="card text-center bg-light" searchData="${data.name.toLowerCase()}">`+
+                `<div class="col-lg-12 mb-1">`+
+                `<div class="card text-center bg-light">`+
                 `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
                 `<h5 class="card-title">${data.name}</h5>`+
                 `</div>`+
@@ -116,8 +115,8 @@ function indonesia(){
     $.ajax({
         type:"GET",
         url:"https://api.kawalcorona.com/indonesia/provinsi/",
-        success:(res)=>{
-            getDeatil(res)
+        success:(ress)=>{
+            getDeatil(ress)
         },
         error:()=>{
             console.log("error")
