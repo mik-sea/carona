@@ -51,7 +51,7 @@ function getDetail(hasil){
             res.waktu = `${waktuu.toLocaleDateString()} ${waktuu.toLocaleTimeString(undefined,{hour12:false})}`
             $("#negara").append(`<a class="dropdown-item" href="luar-negeri.html?negara=${res.negara}">${res.negara}</a>`)
             $("div#dataa").append(
-                `<div class="col-lg-6 pb-5">`+
+                `<div class="col-lg-6 mb-1">`+
                 `<div class="card text-center bg-light" searchData="${res.negara.toLowerCase()}">`+
                 `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
                 `<h5 class="card-title">${res.negara}</h5>`+
@@ -69,24 +69,17 @@ function getDetail(hasil){
         // cetak(res.negara)
         })
     }
-
-fetch(url).then(response=>{
-    response.json().then(hasil=>{
-        getDetail(hasil)
-    })
-})
 $.ajax({
     url:url,
     type:"GET",
-    headers:{
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "X-Content-Type-Options": "nosniff",
-        "Connection":"keep-alive"
-    },
+    // headers:{
+    //     "Content-Type": "application/json",
+    //     "Access-Control-Allow-Origin": "https://api.kawalcorona.com",
+    //     "X-Content-Type-Options": "nosniff",
+    // },
     success:(hasil)=>{
-        // getDetail(hasil)
-        console.log(hasil)
+        getDetail(hasil)
+        // console.log(hasil)
     },
     error:(err)=>{
         console.log(err)
@@ -107,16 +100,3 @@ function cetak(data) {
   
     // document.getElementById("dataa").innerHTML = "<b>" + search1 +"</b>";
 }
-
-
-    // $.ajax({
-    //     url:url,
-    //     type:"GET",
-    //     headers:{
-    //         "content-type":"application/json",
-    //         "Access-Control-Allow-Origin":"*"
-    //     },
-    //     success:(res)=>{
-    //         console.log(res)
-    //     }
-    // })
