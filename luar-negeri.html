@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data di Luar Negeri</title>
+    <title>Tiati Corona - Global</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -13,19 +13,22 @@
 </head>
 <body onload="luar_negeri()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="#"><b>TiatiCorona</b></a>
+        <a class="navbar-brand" href="#"><b>😷TiatiCorona</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Indonesia <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Indonesia <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="luar-negeri.html">Luar Negeri</a>
                 </li>
             </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <input class="form-control form-control-dark mr-sm-2" id="search" type="text" placeholder="ketik nama negara..." aria-label="Search">
+            </div>
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="darkSwitch">
                 <label class="custom-control-label" for="darkSwitch">Dark Mode</label>

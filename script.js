@@ -114,21 +114,20 @@ function indonesia(){
     }
     $.ajax({
         type:"GET",
-        url:"https://api.kawalcorona.com/indonesia/provinsi/",
-        success:(ress)=>{
-            getDeatil(ress)
+        url:"https://api.kawalcorona.com/indonesia/",
+        success:(res)=>{
+            sendiri(res)
+            // console.log(res)
         },
         error:()=>{
             console.log("error")
         },
     })
-
     $.ajax({
         type:"GET",
-        url:"https://api.kawalcorona.com/indonesia/",
-        success:(res)=>{
-            sendiri(res)
-            // console.log(res)
+        url:"https://api.kawalcorona.com/indonesia/provinsi/",
+        success:(ress)=>{
+            getDeatil(ress)
         },
         error:()=>{
             console.log("error")
