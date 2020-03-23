@@ -12,23 +12,8 @@
     <!-- import the webpage's javascript file -->
     <script src="dark-mode-switch.js" defer></script>
     <script src="script.js" defer></script>
-    <script>
-        // function indonesia(){
-            var url="https://api.kawalcorona.com/indonesia/provinsi"
-            $.ajax({
-                url:url,
-                type:"GET",
-                success:(hasil)=>{
-                    console.log(hasil)
-                },
-                error:(err)=>{
-                    console.log(err)
-                }
-            })
-        // }
-    </script>
 </head>
-<body>
+<body onload="indonesia()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#"><b>😷TiatiCorona</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Indonesia <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Indonesia <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +77,5 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <!--     <script src="https://button.glitch.me/button.js"></script> -->
-    
-  </body>
+</body>
 </html>

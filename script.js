@@ -3,7 +3,7 @@ let res = {}
 //prepare for get api from api.kawalcorona.com
 var url = "https://api.kawalcorona.com"
 
-$(document).ready(function(){
+// $(document).ready(function(){
     $('#search').on('keyup', function(){
         var dataList = $(this).val().toLowerCase();
         $('.card').each(function(){
@@ -14,7 +14,7 @@ $(document).ready(function(){
             }
         });
     });
-})
+// })
 function luar_negeri(){
     function getDetail(hasil){
         //   console.log(hasil)
@@ -66,6 +66,23 @@ function luar_negeri(){
         error:(err)=>{
             console.log(err)
         }
+    })
+}
+function indonesia(){
+    function getDeatil(res){
+        res.forEach(hasil => {
+            console.log(hasil.attributes)
+        });
+    }
+    $.ajax({
+        type:"GET",
+        url:"https://api.kawalcorona.com/indonesia/provinsi/",
+        success:(res)=>{
+            getDeatil(res)
+        },
+        error:()=>{
+            console.log("error")
+        },
     })
 }
 function cetak(data) {
