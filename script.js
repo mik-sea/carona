@@ -66,6 +66,17 @@ $.ajax({
         console.log(err)
     }
 })
+
+$.ajax({
+    url:"https://api.kawalcorona.com/indonesia/provinsi",
+    type:"GET",
+    success:(hasil)=>{
+        console.log(hasil)
+    },
+    error:(err)=>{
+        console.log(err)
+    }
+})
 function cetak(data) {
     var search1 = document.getElementById("search").value ;
     // console.log(search1.toLowerCase())
