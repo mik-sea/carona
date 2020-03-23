@@ -69,9 +69,48 @@ function luar_negeri(){
     })
 }
 function indonesia(){
+    function sendiri(res){
+        // res.forEach(element => {
+            let data = res[0].attributes
+            console.log(data)
+            $("div#indonesia").append(
+                `<div class="col-lg-6 mb-1">`+
+                `<div class="card text-center bg-light" searchData="${data.name.toLowerCase()}">`+
+                `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
+                `<h5 class="card-title">${data.name}</h5>`+
+                `</div>`+
+                `<div class="card-body" id="hasil" data-theme="dark">`+
+                `<p class="card-text">Total Terinfeksi : ${data.positif} Jiwa😱</p>`+
+                `<p class="card-text">Total Meninggal : ${data.meninggal} Jiwa👻</p>`+
+                `<p class="card-text">Total Sembuh : ${data.sembuh} Jiwa😃</p>`+
+                // `<p class="card-text">Total Aktif : ${attr.aktif} Jiwa😷</p>`+
+                // `<p class="card-text">Last Update : ${attr.waktu}</p>`+
+                `</div>`+
+                `</div>`+
+            `</div>`
+            )
+        // });
+    }
     function getDeatil(res){
         res.forEach(hasil => {
-            console.log(hasil.attributes)
+            // console.log(hasil.attributes)
+            let data = hasil.attributes
+            $("div#dataa").append(
+                `<div class="col-lg-6 mb-1">`+
+                `<div class="card text-center bg-light" searchData="${data.Provinsi.toLowerCase()}">`+
+                `<div class="card-header bg-dark" id="nama-negara" data-theme="dark">`+
+                `<h5 class="card-title">${data.Provinsi}</h5>`+
+                `</div>`+
+                `<div class="card-body" id="hasil" data-theme="dark">`+
+                `<p class="card-text">Total Terinfeksi : ${data.Kasus_Posi} Jiwa😱</p>`+
+                `<p class="card-text">Total Meninggal : ${data.Kasus_Meni} Jiwa👻</p>`+
+                `<p class="card-text">Total Sembuh : ${data.Kasus_Semb} Jiwa😃</p>`+
+                // `<p class="card-text">Total Aktif : ${attr.aktif} Jiwa😷</p>`+
+                // `<p class="card-text">Last Update : ${attr.waktu}</p>`+
+                `</div>`+
+                `</div>`+
+            `</div>`
+            )
         });
     }
     $.ajax({
@@ -79,6 +118,18 @@ function indonesia(){
         url:"https://api.kawalcorona.com/indonesia/provinsi/",
         success:(res)=>{
             getDeatil(res)
+        },
+        error:()=>{
+            console.log("error")
+        },
+    })
+
+    $.ajax({
+        type:"GET",
+        url:"https://api.kawalcorona.com/indonesia/",
+        success:(res)=>{
+            sendiri(res)
+            // console.log(res)
         },
         error:()=>{
             console.log("error")
